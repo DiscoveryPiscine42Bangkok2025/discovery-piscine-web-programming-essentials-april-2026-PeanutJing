@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+}
+
+.parallax {
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.black-block {
+    height: 150vh; 
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.t {
+    background-image: url("https://ew.com/thmb/h9GR1Bt6dGaVFnnT8sjHr3AJFSo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Hoppers-022726-04-60288b7e510d491a8f351de388dc1b29.jpg");
+}
+
+.b {
+    background-image: url("https://preview.redd.it/hoppers-official-trailer-v0-ny591mfgyh2g1.jpeg?width=928&format=pjpg&auto=webp&s=50f7cd5940187ae9f0cc70cf307c46e8669a4054");
+}
+
+
