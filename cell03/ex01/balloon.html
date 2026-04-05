@@ -8,39 +8,54 @@
     </div>
 </body>
 <script>
-    const dd = document.getElementById("balloon")
-    let cw = dd.offsetWidth
-    let ch = dd.offsetHeight
-    dd.onclick = function() {
-        const dcw = 200
-        const dch = 200
+const dd = document.getElementById("balloon")
+let cw = 200;
+let ch = 200;
+const dcw = 200;
+const dch = 200;
+
+const colors = ['red', 'green', 'blue'];
+let colorIndex = 0;
+
+dd.style.backgroundColor = colors[colorIndex];
+
+dd.onclick = function() {
+    cw += 10;
+    ch += 10;
+
+    colorIndex = (colorIndex + 1) % colors.length;
+    dd.style.backgroundColor = colors[colorIndex];
+    
+    dd.style.width = cw + "px";
+    dd.style.height = ch + "px";
+
+    if (ch > 420 || cw > 420) {
+        cw = dcw;
+        ch = dch;
+        colorIndex = 0;
+
+        dd.style.width = 0;
+        dd.style.height = 0;
         
-        cw += 10;
-        ch += 10;
-        
-        dd.style.width = cw + "px";
-        dd.style.height = ch + "px";
-
-        if (ch > 420 || cw > 420) {
-            cw = dcw
-            ch = dch
-
-            dd.style.width = 0
-            dd.style.height = 0
-            setTimeout(() => {
-                dd.style.width = dcw + "px"
-                dd.style.height = dch + "px"
-            }, 2000);
-        }
-    };
-
-    dd.onmouseleave = function() {
-        if (cw - 5 >= 200 && ch - 5 >= 200) {
-            cw -= 5
-            ch -= 5
-            dd.style.height = ch + "px"
-            dd.style.width = cw + "px"
-        }
+        setTimeout(() => {
+            dd.style.width = dcw + "px";
+            dd.style.height = dch + "px";
+            dd.style.backgroundColor = colors[colorIndex];
+        }, 2000);
     }
+};
+
+dd.onmouseleave = function() {
+    if (cw - 5 >= 200 && ch - 5 >= 200) {
+        cw -= 5;
+        ch -= 5;
+        
+        colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+        
+        dd.style.height = ch + "px";
+        dd.style.width = cw + "px";
+        dd.style.backgroundColor = colors[colorIndex];
+    }
+};
 </script>
 </html>
