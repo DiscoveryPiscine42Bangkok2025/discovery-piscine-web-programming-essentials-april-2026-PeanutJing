@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <button class="db">Click me</button>
+</body>
+<script>
+    const btn = document.querySelector(".db");
+    btn.onclick = function() {
+        const r = Math.floor(Math.random() * 256),g = Math.floor(Math.random() * 256),b = Math.floor(Math.random() * 256)
+        document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+    }
+</script>
+</html>
